@@ -33,8 +33,8 @@ public class LogAnalyticsToAppInsights
 
         try
         {
-            var kql = "SignInLogs | project AADTenantID";
-            var jsonResult = await RunQueryWithRetriesAsync(kql, _logger);
+           // var kql = "SignInLogs | project AADTenantID";
+            var jsonResult = await RunQueryWithRetriesAsync(Constants.KustoQuery, _logger);
             var rows = jsonResult?["tables"]?[0]?["rows"];
 
             if (rows != null)
